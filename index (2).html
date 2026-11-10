@@ -1,0 +1,77 @@
+here<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>CURSED ARENA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+    <section id="menu" class="screen active">
+        <div class="kanji">呪</div>
+        <div class="logo">CURSED ARENA</div>
+        <div class="sub">BATTLE OF THE DAMNED</div>
+        <button class="btn red" id="m-off">Offline · VS AI</button>
+        <button class="btn" id="m-on">Online · Multiplayer</button>
+        <div class="help">MOVE: WASD / Arrows / Joystick<br>J Punch · K Fireball · L Ice Nova · U Domain Expansion</div>
+    </section>
+    <section id="lobby" class="screen">
+        <div class="lwrap">
+            <div class="lhead">
+                <button class="btn small" id="lob-back">← Back</button>
+                <h2>ONLINE LOBBY</h2>
+                <span id="net" class="net">● CONNECTING…</span>
+            </div>
+            <div id="lob-home" class="panel">
+                <label>FIGHTER NAME</label>
+                <input id="in-name" maxlength="14" value="Fighter" autocomplete="off">
+                <button class="btn red" id="btn-create">Create Room</button>
+                <div class="or">— OR —</div>
+                <label>ROOM CODE</label>
+                <input id="in-code" maxlength="6" placeholder="ABC123" autocapitalize="characters" autocomplete="off">
+                <button class="btn" id="btn-join">Join Room</button>
+                <div id="lob-err" class="err"></div>
+            </div>
+            <div id="lob-room" class="panel" hidden>
+                <div class="codebox"><span>ROOM <b id="rc">------</b></span><button class="btn small" id="btn-copy">Copy</button></div>
+                <div class="slots"><div class="slot" id="slot0"></div><div class="slot" id="slot1"></div></div>
+                <div id="cdown"></div>
+                <button class="btn red" id="btn-ready">Ready</button>
+                <div class="chat">
+                    <div id="chatlog"></div>
+                    <div class="chatin"><input id="in-chat" maxlength="120" placeholder="Say something…" autocomplete="off"><button class="btn small" id="btn-send">Send</button></div>
+                </div>
+                <button class="btn small ghost" id="btn-leave">Leave Room</button>
+            </div>
+        </div>
+    </section>
+    <section id="game" class="screen">
+        <canvas id="c"></canvas>
+        <div id="flash"></div>
+        <div id="hud">
+            <div class="fbox me"><div class="fname" id="p-name">PLAYER</div><div class="bar"><i class="ghost" id="p-ghost"></i><i class="fill" id="p-fill"></i></div></div>
+            <div id="timer">99</div>
+            <div class="fbox right"><div class="fname" id="e-name">ENEMY</div><div class="bar"><i class="ghost" id="e-ghost"></i><i class="fill" id="e-fill"></i></div></div>
+        </div>
+        <div id="netinfo"></div>
+        <button id="exit">✕</button>
+        <div id="banner"></div>
+        <div id="joy-zone"><div id="joy-base"><div id="joy-knob"></div></div></div>
+        <div id="btns">
+            <button class="act" id="bp" data-a="punch">👊<span class="key">J</span><div class="cd"></div><b class="cdt"></b></button>
+            <button class="act" id="b1" data-a="s1">🔥<span class="key">K</span><div class="cd"></div><b class="cdt"></b></button>
+            <button class="act" id="b2" data-a="s2">❄️<span class="key">L</span><div class="cd"></div><b class="cdt"></b></button>
+            <button class="act" id="b3" data-a="s3">🌀<span class="key">U</span><div class="cd"></div><b class="cdt"></b></button>
+        </div>
+        <div id="result" class="overlay">
+            <h1 id="res-title">VICTORY</h1>
+            <button class="btn red" id="btn-rematch">Rematch</button>
+            <button class="btn" id="btn-exit2">Leave</button>
+        </div>
+    </section>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="game.js"></script>
+</body>
+  </html>
